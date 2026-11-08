@@ -1,0 +1,6 @@
+loan_id,paid_installments,partial_installments,missed_installments,total_emi,total_paid,total_outstanding,loan_dpd
+LOAN-000001,6,3,3,159927.81,99954.87,59972.94,360
+LOAN-000002,8,2,2,159927.81,119945.88,39981.93,329
+LOAN-000003,5,5,2,106618.53,66636.57,39981.96,329
+LOAN-000004,5,4,3,53309.27,31097.08,22212.19,360
+LOAN-000005,4,3,5,106618.53,48866.83,57751.7,360

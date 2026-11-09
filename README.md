@@ -1,56 +1,52 @@
 # Loan Collection Management System
 
+A Python, MySQL and Streamlit-based application for managing loan collection data, monitoring delinquent accounts, prioritizing collection cases and tracking customer payment commitments.
+
 ## Overview
 
-A Python and MySQL-based Loan Collection Management System that processes loan, EMI, payment, delinquency, risk, and collection data.
-
-The project demonstrates data processing, collection prioritization, customer contact restrictions, Promise-to-Pay tracking, database integration, data validation, and interactive dashboard reporting.
-
-It includes a Streamlit dashboard for monitoring loan portfolios, collection performance, delinquency, risk indicators, and payment commitments.
+This project demonstrates a data-driven loan collection workflow using synthetic financial data. It includes synthetic dataset generation, MySQL database integration, collection analytics, data validation and an interactive dashboard.
 
 ## Technology Stack
 
 - Python 3.14
-- MySQL
-- mysql-connector-python
+- MySQL 8
 - Streamlit
 - Pandas
 - Plotly
+- mysql-connector-python
 - Faker
-- CSV-based data processing
 - SQL
 
 ## Key Features
 
-1. **Loan and EMI Management** – Generates EMI schedules and tracks installment records.
-2. **Payment Processing** – Processes payment records and reconciles paid and outstanding amounts.
-3. **Delinquency Tracking** – Calculates Days Past Due (DPD) and loan-level outstanding balances.
-4. **Risk Assessment** – Generates risk indicators based on repayment behaviour and configured test scenarios.
-5. **Collection Prioritization** – Calculates collection priority scores and ranks loans.
-6. **Collection Case Management** – Generates collection cases with appropriate action statuses.
-7. **Contact Preferences** – Tracks customer communication preferences and restrictions.
-8. **Contact Attempts** – Validates communication channels, permitted hours, and contact eligibility.
-9. **Promise-to-Pay** – Tracks customer payment commitments, payment allocations, and remaining amounts.
-10. **Database Integration** – Imports collection-related records into MySQL.
-11. **Interactive Dashboard** – Displays loan portfolio metrics, collection performance, risk analysis, and Promise-to-Pay tracking using Streamlit and Plotly.
+1. **Loan and Customer Management** – Stores and manages customer, account and loan information.
+2. **EMI and Payment Tracking** – Tracks installment schedules, payments and outstanding balances.
+3. **Delinquency Monitoring** – Supports Days Past Due (DPD) analysis and delinquency tracking.
+4. **Risk Indicators** – Includes configured risk scenarios for collection analysis.
+5. **Collection Prioritization** – Supports collection priority analysis.
+6. **Collection Case Management** – Tracks collection cases and action statuses.
+7. **Contact Preferences** – Stores customer communication preferences and restrictions.
+8. **Contact Attempt Tracking** – Maintains customer contact attempt records.
+9. **Promise-to-Pay Monitoring** – Tracks payment commitments and remaining amounts.
+10. **MySQL Integration** – Stores and retrieves collection data using MySQL.
+11. **Interactive Dashboard** – Displays portfolio metrics, collection analytics and customer information.
+12. **Customer Management** – Supports customer search, adding customers and editing dashboard-managed customers.
 
 ## Dashboard
 
-The project includes an interactive dashboard built with Streamlit, Pandas, Plotly, and MySQL.
+The application includes an interactive dashboard built using Streamlit, Pandas, Plotly and MySQL.
 
 ### Dashboard Features
 
-- Loan portfolio overview
-- Total collection cases
-- Outstanding loan amount
-- Average Days Past Due (DPD)
-- Collection priority score visualization
-- Risk score analysis
-- Collection action status distribution
-- Promise-to-Pay tracking
-- Paid versus remaining promise amounts
-- Customer and loan search
-- Collection status filters
+- Loan collection portfolio overview
+- Collection case analytics
+- Outstanding balance monitoring
+- Average Days Past Due (DPD) analysis
+- Collection priority and risk analysis
+- Collection case exploration
+- Customer search
+- Add new customers
+- Edit dashboard-managed customers
 
 ### Run the Dashboard
 
@@ -60,50 +56,84 @@ From the project root directory, execute:
 python -m streamlit run dashboard.py
 ```
 
-Open the local URL displayed in the terminal, normally:
+Open the local URL displayed in the terminal, usually:
 
 ```text
 http://localhost:8501
 ```
 
-Enter the MySQL connection details in the dashboard sidebar to load the data.
+Enter your MySQL connection details in the dashboard sidebar and click **Connect to Database**.
 
 ## Project Structure
 
 ```text
 Loan_Collection_Management_System/
 │
-├── data/
-│   ├── customers.csv
-│   ├── loans.csv
-│   ├── all_emi_schedules.csv
-│   ├── payments.csv
-│   ├── delinquency.csv
-│   ├── risk_indicators.csv
-│   ├── collection_priority.csv
-│   ├── collection_cases.csv
-│   ├── contact_preferences.csv
-│   ├── contact_attempts.csv
-│   ├── promises_to_pay.csv
-│   └── promise_payment_allocations.csv
-│
-├── database/
-│   └── schema.sql
-│
-├── src/
-│   ├── business/
-│   ├── database/
-│   ├── generator/
-│   └── validation/
-│
 ├── dashboard.py
 ├── main.py
 ├── requirements.txt
 ├── README.md
-└── .gitignore
+├── .gitignore
+│
+├── database/
+├── data/
+├── docs/
+├── outputs/
+├── src/
+├── tests/
+│
+└── synthetic_data_v2/
+    ├── README.md
+    ├── data_dictionary.md
+    ├── generate_dataset.py
+    ├── export_sql.py
+    └── output/
+        ├── accounts.csv
+        ├── customers.csv
+        ├── loans.csv
+        ├── payments.csv
+        ├── collection_cases.csv
+        ├── installments.csv
+        ├── contact_attempts.csv
+        ├── contact_preferences.csv
+        ├── delinquency_snapshots.csv
+        ├── promises_to_pay.csv
+        ├── risk_indicators.csv
+        ├── ground_truth.csv
+        ├── schema.sql
+        └── seed_data.sql
 ```
 
-## Setup
+## Synthetic Dataset
+
+The project includes a synthetic loan collection dataset generated for demonstration, testing and analysis.
+
+It contains records for:
+
+- Customers
+- Accounts
+- Loans
+- Installments
+- Payments
+- Collection cases
+- Contact preferences
+- Contact attempts
+- Delinquency snapshots
+- Promises to Pay
+- Risk indicators
+- Ground-truth validation scenarios
+
+### Dataset Size
+
+- 10,000 loans
+- 8,390 collection cases
+
+For additional information about dataset generation, entity relationships and column definitions, refer to:
+
+- `synthetic_data_v2/README.md`
+- `synthetic_data_v2/data_dictionary.md`
+
+## Installation and Setup
 
 ### 1. Clone the Repository
 
@@ -133,89 +163,48 @@ python -m pip install -r requirements.txt
 
 ### 4. Configure MySQL
 
-- Start your MySQL server.
-- Open `database/schema.sql` in MySQL Workbench.
-- Execute the SQL script.
-- The script creates the `loan_collection_db` database and its 13 tables.
-- Configure your local MySQL credentials through the database connection module or the dashboard sidebar.
-- Do not commit database passwords or other credentials to GitHub.
+1. Install and start MySQL Server 8.
+2. Open MySQL Workbench or the MySQL command-line client.
+3. For a fresh database setup, import `synthetic_data_v2/output/schema.sql`.
+4. Import `synthetic_data_v2/output/seed_data.sql` to populate the database.
+5. The database name is `loan_collection_synthetic`.
+6. Start the Streamlit dashboard and enter your MySQL host, port, username and password in the sidebar.
 
-## Running the Project
+**Important:** The supplied `schema.sql` drops and recreates existing tables. Import it only when creating a fresh database or intentionally resetting the dataset. Do not run it against a database containing records you want to preserve.
 
-The implementation uses separate Python scripts for data generation, business processing, database imports, and validation.
+Never publish database passwords, private credentials or production customer information to GitHub.
 
-Run the required scripts individually from the project root.
+## Run the Application
 
-Examples of database import modules:
-
-```bash
-python -m src.database.import_collection_priority
-
-python -m src.database.import_collection_cases
-
-python -m src.database.import_contact_attempts
-```
-
-Other available import modules include:
-
-- Contact preferences
-- Risk indicators
-- Promises to Pay
-- Promise-payment allocations
-
-### Launch the Dashboard
+### Launch the Streamlit Dashboard
 
 ```bash
 python -m streamlit run dashboard.py
 ```
 
-## Validation
+### Run the Main Python Application
 
-The project includes validation scripts for:
-
-- EMI schedules
-- Installment payments
-- Delinquency summaries
-- Collection cases
-- Contact preferences
-- Contact attempts
-- Promises to Pay
-
-The tested EMI, installment payment, collection case, contact attempt, and Promise-to-Pay validation modules completed successfully with zero reported validation errors.
-
-## Sample Verified Results
-
-The following results are based on the included demonstration dataset and its current MySQL records.
-
-| Metric | Result |
-|---|---:|
-| Customers | 1,000 |
-| Loans | 5 |
-| EMI schedules | 60 |
-| Payment records | 45 |
-| Collection cases | 5 |
-| Contact attempts | 6 |
-| Promises to Pay | 5 |
-| Total promised | 50,000.00 |
-| Total paid | 25,769.76 |
-| Total remaining | 24,230.24 |
-
-### Promise-to-Pay Reconciliation
-
-```text
-Total Promised = Total Paid + Total Remaining
-
-50,000.00 = 25,769.76 + 24,230.24
+```bash
+python main.py
 ```
 
-The Promise-to-Pay amounts reconcile with the current test dataset.
+## Synthetic Data Generation
+
+To generate the synthetic dataset, run:
+
+```bash
+python synthetic_data_v2/generate_dataset.py
+```
+
+Refer to `synthetic_data_v2/README.md` for dataset generation and export details.
 
 ## Notes and Limitations
 
-- The included dataset is synthetic and intended for demonstration and testing.
-- Some calculations use fixed reference dates to make test results reproducible.
-- Risk and hardship scenarios are configured test scenarios, not predictions from a trained machine-learning model.
-- The project currently uses Python scripts and a Streamlit dashboard.
+- All included financial and customer records are synthetic.
+- The project is intended for educational, demonstration and testing purposes.
+- Risk indicators and priority scenarios are configured demonstration values, not predictions from a trained machine-learning model.
+- The application requires a locally configured MySQL database.
+- The dashboard supports customer search, adding customers and editing dashboard-managed customers.
 - A REST API and live customer communication integration are not included.
 - `main.py` currently displays a project menu; it is not an end-to-end workflow runner.
 
@@ -223,4 +212,4 @@ The Promise-to-Pay amounts reconcile with the current test dataset.
 
 **Ramcharan Teja**
 
-Python | SQL | MySQL | Java | Streamlit
+Python | SQL | MySQL | Streamlit | Data Processing

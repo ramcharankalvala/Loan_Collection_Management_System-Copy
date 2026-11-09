@@ -34,6 +34,8 @@ This project demonstrates a data-driven loan collection workflow using synthetic
 
 ## Dashboard
 
+![Loan Collection Management System Dashboard](dashboard_overview.png)
+
 The application includes an interactive dashboard built using Streamlit, Pandas, Plotly and MySQL.
 
 ### Dashboard Features

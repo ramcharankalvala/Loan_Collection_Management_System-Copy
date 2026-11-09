@@ -1,0 +1,20 @@
+{
+    "seed": 20261022,
+    "as_of_date": "2026-12-31",
+    "validation_status": "PASSED",
+    "errors": [],
+    "row_counts": {
+        "customers.csv": 10000,
+        "accounts.csv": 10000,
+        "loans.csv": 10000,
+        "installments.csv": 30000,
+        "payments.csv": 23944,
+        "delinquency_snapshots.csv": 30000,
+        "contact_preferences.csv": 10000,
+        "contact_attempts.csv": 7950,
+        "promises_to_pay.csv": 1246,
+        "collection_cases.csv": 8390,
+        "risk_indicators.csv": 10000,
+        "ground_truth.csv": 5
+    }
+}

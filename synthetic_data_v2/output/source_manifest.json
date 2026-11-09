@@ -1,0 +1,10 @@
+{
+    "generator": "generate_dataset.py",
+    "version": "2.0",
+    "seed": 20261022,
+    "loan_count": 10000,
+    "installments_per_loan": 3,
+    "total_installments": 30000,
+    "as_of_date": "2026-12-31",
+    "notes": "Synthetic data generated for a loan collection management challenge."
+}

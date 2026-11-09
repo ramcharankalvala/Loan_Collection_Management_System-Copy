@@ -1,0 +1,14 @@
+{
+    "customers.csv": "c1a2f8392cb381b9c1cddc19ba6f97f07c3735e0cb996d134c610abf0ba91085",
+    "accounts.csv": "2751371aa3236315fd61c82a7664c5746e4b4c1d1efdf0c3d7857956ea7e26a3",
+    "loans.csv": "dadc9d9490bde526fe3fac052b71be43d55f34f2932506715207f2284ffa0034",
+    "installments.csv": "ab83be092bdd6cb115b1dd96cccc716ef55b9c9a66a257fa17d0becd0e43fc03",
+    "payments.csv": "d4827b1503fa8833c7384e2b14e5f7766c7743300b525dc8d2f68d51516e9650",
+    "delinquency_snapshots.csv": "7d972260b97d11b2b6061bb1656e9cb86e60910d2c768b5a384f134ba9f13df6",
+    "contact_preferences.csv": "d2a21ae159870cbcedcd2942f7187d59faa51ea069c0dfabb6208dea42b0d690",
+    "contact_attempts.csv": "01a21eced199a2d4874b3948c2da33a5d3f813663f07ab602e7aa39fe7ad7811",
+    "promises_to_pay.csv": "addefd5b1705e46606a6ee4bf0b5e5863608c97b0b792489de605e0a6aa850c2",
+    "collection_cases.csv": "67dd3bf967b53581bffc342d72ffa57702f9247f8a819225a087a97f0726465c",
+    "risk_indicators.csv": "8793c202ea9d587dc87646430877de7d0ce1f8e457fc43f2cfc3c3e79074aafb",
+    "ground_truth.csv": "5f19ba6309b0166d0a21cc9a140218a36c4e57d76f7ed58df07a8bc66be2234b"
+}
